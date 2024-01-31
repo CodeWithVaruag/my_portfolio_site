@@ -383,3 +383,55 @@ footer {
     width: 100%;
   }
 }
+
+
+/* Add this style to make it like a column on small screens */
+@media (max-width: 768px) {
+
+  header img {
+    border-radius: 65%;
+    border: 6px solid #eae9ef;
+    width: 182px;
+    height: 215px;
+  }
+  
+  body {
+    background-size: auto;
+  }
+
+  .home-container {
+    gap: 50px; /* Add gap between the two rows */
+  }
+
+  #home {
+    margin-top: -67px; /* Adjust the margin as needed */
+  }
+
+  .home-container {
+    flex-direction: column;
+  }
+
+  .skills-list li {
+    width: 100%;
+    margin: 15px 0;
+    padding: 15px;
+    border: 2px solid #747a77;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    backdrop-filter: blur(8px);
+    background-color: #f7f7f7;
+    background-size: cover;
+  }
+
+  .skills-list li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(46, 139, 87, 0.3);
+  }
+
+  .project-details,
+  .card,
+  .skills-list li {
+    width: 100%;
+  }
+}
+
