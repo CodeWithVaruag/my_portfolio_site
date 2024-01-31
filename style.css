@@ -1,0 +1,385 @@
+/* Reset some default browser styles */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a background color and font for the entire page */
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+  font-family: 'Roboto', sans-serif; /* Change to your preferred font */
+  color: #333;
+}
+
+/* Add space above the navigation bar and cover the gap with background color */
+nav {
+  margin-top: 10px;
+  background-color: #ffffff; /* White color */
+}
+
+/* Style the navigation bar */
+nav {
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: white;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+nav a {
+  color: #2e8b57; /* Green color */
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+  color: #006400; /* Darker green on hover */
+}
+
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 35px; /* Adjust the margin as needed */
+}
+/* Style the header section */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px 20px;
+}
+
+/* Style the profile picture with wobbly border blob shape */
+header img {
+  border-radius: 54%;
+  border: 6px solid #eae9ef;
+  width: 249px;
+  height: 377px;
+  transition: transform 0.5s ease-in-out;
+  object-fit: cover;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Apply typing and backspace animations to roleText */
+#roleText {
+  height: 1.5em; /* Set a fixed height */
+  overflow: hidden;
+  color: rgb(22, 165, 213);
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#roleText div {
+  display: inline-block;
+  white-space: nowrap;
+}
+#roleText span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  animation: typing 4s steps(40) 1s forwards, backspace 4s steps(40) 6s forwards;
+}
+.blockquote {
+  font-style: italic;
+  margin: 30px 0;
+  text-align: center;
+}
+
+#roleText span#role1 {
+  animation: typing 4s steps(40) 1s forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes backspace {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+/* Style the social media icons */
+.social-media {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-media a {
+  color: black;
+  font-size: 35px;
+  margin: 0 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-media a:hover {
+  color: #2e8b57; /* Darker green on hover */
+}
+
+/* Quote beneath social media icons */
+.quote {
+  font-style: italic;
+  margin: 20px 0;
+  text-align: center;
+  color: #555;
+}
+
+/* Style the sections */
+section {
+  padding: 50px 20px;
+}
+
+/* Style the skills section */
+.skills {
+  text-align: center;
+}
+
+.skills h2 {
+  margin-bottom: 20px;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.skills-list li {
+  width: 30%;
+  margin: 15px 0;
+  padding: 15px;
+  border: 2px solid #747a77;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  backdrop-filter: blur(8px); 
+  background-color: #f7f7f7 ; 
+  background-size: cover;
+}
+
+.skills-list li b {
+  text-align: center;
+  display: block; /* Added display: block to center the text */
+  font-size: 15px;
+  margin-bottom: 15px;
+
+  
+}
+
+.skills-list li p {
+  text-align: left; /* Align related content to the left */
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+.skills-list li button {
+  margin-top: 10px; /* Adjust spacing as needed */
+  align-self: center;
+}
+
+
+
+.btn-primary{
+  border: 2px solid rgb(28, 28, 28);
+  background-color: #f6f3f3;
+  color:black ;
+}
+
+.skills-list li:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(46, 139, 87, 0.3);
+}
+
+.home-container {
+  display: flex;
+  gap: 150px; /* Add gap between the two rows */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow items to wrap to the next line when the screen size is minimized */
+}
+
+/* Add this style to make it like a column on small screens */
+@media (max-width: 768px) {
+
+  header img {
+    border-radius: 65%;
+    border: 6px solid #eae9ef;
+    width: 182px;
+    height: 215px;
+ 
+  }
+  
+  body{
+    background-size:auto;
+  }
+
+  .home-container {
+
+    gap: 50px; /* Add gap between the two rows */
+ /* Allow items to wrap to the next line when the screen size is minimized */
+  }
+
+  #home {
+    margin-top: -67px; /* Adjust the margin as needed */
+  }
+
+  .home-container {
+      flex-direction: column;
+
+   
+  }
+}
+/* Style the project section */
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.project-details {
+  width: 30%; /* Adjust as needed */
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  border : 3px solid #9fa196;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Improved box shadow */
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+  text-align: center; /* Center text within the project details */
+}
+
+.project-details h2 {
+  font-family: 'Your Custom Font', sans-serif; /* Replace with your preferred font */
+  font-size: 1.5em; /* Adjust font size as needed */
+}
+
+.project-details img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px; /* Adjust spacing as needed */
+}
+
+.project-details p {
+  text-align: justify; /* Adjust alignment as needed */
+  margin-bottom: 15px; /* Adjust spacing as needed */
+}
+
+.project-details .viewproject {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px; /* Improved button styling */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+
+  border: 2px solid rgb(28, 28, 28);
+  background-color: #f6f3f3;
+  color:black ;
+
+  
+}
+
+.project-details .viewproject:hover {
+  background-color: rgb(174, 158, 158); /* Darker color on hover */
+
+}
+
+.project-details:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Improved box shadow on hover */
+}
+
+
+/* Style the blog entries */
+
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin: auto;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 3px solid #000;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin-top: 50px; /* Added margin-top to provide padding from the top */
+}
+
+.contact-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-info h5 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+
+
+/* Style the footer */
+footer {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .project-details,
+  .card,
+  .skills-list li {
+    width: 100%;
+  }
+}

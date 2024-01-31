@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include Bootstrap and other necessary CSS libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Your custom stylesheet -->
+    <!-- Add your other necessary head content -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css">
+
+    <title>My Portfolio</title>
+
+    <!-- Add styles for animation -->
+</head>
+
+
+
+<body>
+
+<!-- Navigation Bar with Hamburger Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <!-- Button that triggers the collapse behavior on smaller screens -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home">
+    <div class="container">
+        <header class="my-5">
+            <div class="home-container">
+                <div class="homeright">
+                    <img src="okwithit.png" alt="Profile Picture" class="profile-picture">
+                </div>
+                <div class="homecol">
+                    <h1 class="display-5"><b>Gaurab Dahal</b></h1>
+                    <h2 class="display-4" id="roleText">
+                        <span id="role1">Software Engineer</span>
+                        <span id="role2" class="hidden">Django Developer</span>
+                        <span id="role3" class="hidden">AI / ML Enthusiast</span>
+                    </h2>
+                    <div class="social-media mt-4">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/hero.gaurav.5"
+                                    target="_blank" class="fa fa-facebook"></a></li>
+                            <li class="list-inline-item"><a href="https://github.com/CodeWithVaruag" target="_blank"
+                                    class="fa fa-github"></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/ma_chai_gaurey/"
+                                    target="_blank" class="fa fa-instagram"></a></li>
+                        </ul>
+                    </div>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Discovering new things in the world of technologies "</p>
+                    </blockquote>
+                </div>
+            </div>
+        </header>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const roleText = document.getElementById('roleText');
+        const roles = [
+            { role: 'Software Engineer', delay: 0 },
+            { role: 'Django Developer', delay: 1500 }, // Delay of 5 seconds after role 1 disappears
+            { role: 'AI / ML Enthusiast', delay: 1500 } // Delay of 5 seconds after role 2 disappears
+        ];
+
+        let currentIndex = 0;
+
+        function animateRoles() {
+            const currentRole = roles[currentIndex];
+
+            typeRole(currentRole.role, () => {
+                setTimeout(() => {
+                    eraseRole(() => {
+                        currentIndex = (currentIndex + 1) % roles.length; // Move to the next role
+                        animateRoles();
+                    });
+                }, currentRole.delay);
+            });
+        }
+
+        function typeRole(text, callback) {
+            let index = 0;
+            const typingInterval = setInterval(() => {
+                roleText.innerHTML = text.slice(0, index);
+                index++;
+
+                if (index > text.length) {
+                    clearInterval(typingInterval);
+                    setTimeout(callback, 1000); // Pause for 1 second after typing
+                }
+            }, 50); // Adjust typing speed (decrease for faster, increase for slower)
+
+            // Toggle cursor visibility for blinking effect
+            const cursor = document.createElement('span');
+            cursor.className = 'cursor';
+            roleText.appendChild(cursor);
+
+            setInterval(() => {
+                cursor.style.visibility = (cursor.style.visibility === 'visible') ? 'hidden' : 'visible';
+            }, 500); // Adjust blinking speed
+        }
+
+        function eraseRole(callback) {
+            let text = roleText.textContent;
+            let index = text.length;
+            const erasingInterval = setInterval(() => {
+                roleText.innerHTML = text.slice(0, index);
+                index--;
+
+                if (index === 0) {
+                    clearInterval(erasingInterval);
+                    callback();
+                }
+            }, 30); // Adjust erasing speed (decrease for faster, increase for slower)
+        }
+
+        animateRoles();
+    });
+</script>
+
+
+</body>
+</html>
